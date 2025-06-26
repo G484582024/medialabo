@@ -1,19 +1,38 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
-function print(data) {
-  let tempo={
+function print() {
+  let tempo = {
     name: "味喜",
     address: "神奈川県鎌倉市"
   };
- 
 
-    console.log("店名: "+tempo.name);
-    console.log("住所:"+tempo.address);
-
+  console.log("店名: " + tempo.name);
+  console.log("住所: " + tempo.address);
 }
 
-print(); // これで "味喜" がコンソールに表示されます
+// ボタンをクリックしたときの処理
+document.getElementById("submit").addEventListener("click", hantei);
 
+function hantei() {
+  const input = document.getElementById("nameBox").value.trim();
+  const result = document.getElementById("result");
+
+  const gourmetMap = {
+    "中華": "味喜"
+
+  };
+
+  if (gourmetMap[input]) {
+    result.textContent = ` 「${input}」のおすすめ：${gourmetMap[input]}`;
+    
+    // 中華のときは店情報も出す
+    if (input === "中華") {
+      print();
+    }
+  } else {
+    result.textContent = "該当するグルメ情報はありません。";
+  }
+}
 
 
 
