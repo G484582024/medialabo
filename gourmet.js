@@ -8,8 +8,16 @@ function print(data) {
  
 
     console.log("店名: "+tempo.name);
+    console.log("住所:"+tempo.address);
+
 }
-print();  // これで "味喜" がコンソールに表示されます
+
+print(); // これで "味喜" がコンソールに表示されます
+
+
+
+
+
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
