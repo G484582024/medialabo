@@ -1,47 +1,30 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
-function print() {
-  let tempo = {
-    name: "味喜",
-    address: "神奈川県鎌倉市"
-  };
-
-  console.log("店名: " + tempo.name);
-  console.log("住所: " + tempo.address);
-}
-
-// ボタンをクリックしたときの処理
-document.getElementById("submit").addEventListener("click", hantei);
-
-function hantei() {
-  const input = document.getElementById("nameBox").value.trim();
-  const result = document.getElementById("result");
-
-  const gourmetMap = {
-    "中華": "味喜"
-
-  };
-
-  if (gourmetMap[input]) {
-    result.textContent = ` 「${input}」のおすすめ：${gourmetMap[input]}`;
-    
-    // 中華のときは店情報も出す
-    if (input === "中華") {
-      print();
-    }
-  } else {
-    result.textContent = "該当するグルメ情報はありません。";
-  }
-}
-
-
-
-
-
-// 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+ 
+  const oldResult = document.getElementById("result");
+  if (oldResult) {
+    oldResult.remove();
+  }
 
+  
+  const div = document.createElement("div");
+  div.id = "result";
+
+  
+  const nameP = document.createElement("p");
+  nameP.textContent = "店名: " + data.name;
+  div.appendChild(nameP);
+
+
+  const addressP = document.createElement("p");
+  addressP.textContent = "住所: " + data.address;
+  div.appendChild(addressP);
+
+ 
+  document.body.appendChild(div);
 }
+
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
